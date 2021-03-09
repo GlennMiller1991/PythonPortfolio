@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action='' method='POST'>
+    <h1>
+        Онлайн перевод раскладки клавиатуры с русской на английскую
+    </h1>
+    <table>
+        <tr>
+            <td>{{ form.language_choice.label }}:</td> <td>{{ form.language_choice() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.text_to_swop.label }}:</td> <td>{{ form.text_to_swop() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.submit_text() }}</td><td></td>
+        </tr>
+    </table>
+    {{ form.hidden_tag() }}
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method='post' enctype='multipart/form-data' action=''>
+    {{ form.hidden_tag() }}
+    <p>
+        Выберите файл для отправки на сервер.
+    </p>
+    <table>
+        <tr>
+            <td>{{ form.choose_file.label }}:</td>
+            <td>{{ form.choose_file() }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form.submit_file() }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                {% for error in form.choose_file.errors %}
+                    <span style="color: red;"> [{{ error }}] </span>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</form>
+{% if filename %}
+        <p>
+            <a href="{{ url_for('file_proc_bp.download', filename=filename) }}">
+                Для скачивания обработанного файла перейдите по ссылке
+            </a>
+        </p>
+        {% endif %}
+
+{% endblock %}

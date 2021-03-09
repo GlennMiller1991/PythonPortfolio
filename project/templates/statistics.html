@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>
+    Количество уникальных IP на этой странице - {{ uniqueIP }}
+</h2>
+
+<table>
+    <tr>
+        <th>IP адресс</th><th>Браузер</th><th>Время</th>
+    </tr>
+    {% for entry in table.query.all() %}
+    <tr>
+        <td>{{ entry.address }}</td><td> {{ entry.browser }}</td><td> {{ entry.last_visit }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

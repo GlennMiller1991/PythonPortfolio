@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+    <tr>
+        <td><img src="{{ avatar }}" width="128px"></td>
+        <td valign='top'>
+            <p>Пользователь: <b>{{ user.username }}</b></p>
+            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+            {% if user.last_seen %}<p>Заходил {{ user.last_seen }}<p>{% endif %}
+                {% if user == current_user %}<p><a href='{{ url_for('edit_profile') }}'>
+                                               Редактировать</a></p>
+                {% endif %}
+        </td>
+    </tr>
+</table>
+<hr>
+{% if form %}
+    <form action="" method='post'>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.header.label }} <br>
+            {{ form.header() }} <br>
+            {% for error in form.header.errors %}
+                <span style='color: red;'>[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.post.label }} <br>
+            {{ form.post() }} <br>
+            {% for error in form.post.errors %}
+                <span style='color: red;'>[{{ error }}]</span>
+            {% endfor %}
+            {{ form.submit() }}
+        </p>
+    </form>
+    <hr>
+{% endif %}
+    {% for post in posts %}
+    <table>
+        <tr valign='top'>
+            <td><img src='{{ avatar }}' width='40px'></td>
+            <td><b>{{ post.author.username }}</b> опубликовал:<br>
+                {{ post.header }} {% if form %}<a href='{{ url_for("edit_post", id=post.id) }}'> [...]</a>{% endif %}</td> 
+        </tr>
+    </table>
+    {% endfor %}
+{% endblock %}

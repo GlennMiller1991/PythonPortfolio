@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>
+    Результат смены раскладки:
+</h1>
+<table>
+        <tr>
+            <td>{{ form.language_choice.label }}:</td> <td>{{ form.language_choice.choices[language][1] }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.text_to_swop.data }}:</td> <td>{{ swoper_result }}</td>
+        </tr>
+    </table>
+{% endblock %}
