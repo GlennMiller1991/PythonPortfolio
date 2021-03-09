@@ -28,7 +28,8 @@ login = LoginManager(app)
 login.login_view = 'login'
 login.login_message = 'Для получения доступа на эту страницу, пожалуйста, войдите'
 
-'''from project import routes, models
+from project import models
+''', routes
 
 app.register_blueprint(routes.file_proc_bp)
 '''
