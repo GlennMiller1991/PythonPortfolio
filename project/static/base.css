@@ -3,8 +3,8 @@ body {
 }
 
 header {
-    color: white; 
-    padding-left: 70px; 
+    color: white;
+    padding-left: 70px;
     padding-top: 10px;
 }
 
@@ -12,7 +12,7 @@ aside {
     width:  20%;
     float:  right;
     padding-left: 5px;
-    
+
 }
 
 section {
@@ -25,8 +25,23 @@ section {
     padding-top:    7px;
 }
 
-#left_center { 
-    width: 60%; 
+#left_center {
+    width: 60%;
     float: left;
     padding: 5%;
+}
+
+#left_center code {
+  background-color: #F9FE72;
+  font-family: monospace;
+}
+
+#left_center > pre {
+  width: 40%;
+  margin-left: 5%;
+  padding-left: 5%;
+  margin-right: 5%;
+  padding-right: 5%;
+  background-color: #f9fce1;
+  font-family: monospace;
 }

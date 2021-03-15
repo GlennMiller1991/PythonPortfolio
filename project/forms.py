@@ -43,7 +43,7 @@ class RegistrationForm(FlaskForm):
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError('Эта почта уже ииспользуется')
+            raise ValidationError('Эта почта уже используется')
 
 class EditProfileForm(FlaskForm):
     username = StringField('Имя', validators=[DataRequired()])
@@ -68,3 +68,10 @@ class PostForm(FlaskForm):
                          validators=[DataRequired(),
                                      Length(min=1, max=100000)])
     submit = SubmitField('Опубликовать')
+    paragraph = SubmitField('paragraph')
+    bold = SubmitField('bold')
+    italic = SubmitField('italic')
+    strike = SubmitField('strike')
+    details = SubmitField('details')
+    code = SubmitField('code')
+    pre = SubmitField('pre')

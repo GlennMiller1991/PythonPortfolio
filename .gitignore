@@ -1,3 +1,4 @@
+project/text_files/*
 project/__pycache__/*
 *.pyc
 __pycache__/*

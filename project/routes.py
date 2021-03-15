@@ -10,7 +10,7 @@ from jinja2 import Markup
 
 from project.forms import LoginForm, UserFileForm, SwopForm,  RegistrationForm,\
                           EditProfileForm, PostForm
-from project.utils import swoper_logic, clear_instance_path
+from project.utils import swoper_logic, clear_instance_path, tag_replace
 from project import app, os, db
 from project.models import User, IP_field, Post
 from project.file_proc import file_proc_errors, exl_file_proc, template_file_proc
@@ -52,7 +52,6 @@ def edit_post(id):
     if post.author == current_user:
         form = PostForm()
         if form.validate_on_submit():
-            print(form.header.data, '\n', form.post.data)
             if post.header == form.header.data:
                 if post.body != form.post.data:
                     post.body = form.post.data
@@ -76,7 +75,10 @@ def edit_post(id):
 @app.route('/posts/<id>')
 def posts(id):
     post = Post.query.get_or_404(id)
-    body = Markup(post.body.replace('\r\n', '<br>'))
+    body = post.body
+    body = Markup.escape(body)
+    body = tag_replace(body)
+    #body = body.replace('\r\n', '<br>')
     header = post.header
     return render_template('post.html',
                            the_title='Пост',

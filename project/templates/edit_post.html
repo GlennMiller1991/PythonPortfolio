@@ -2,16 +2,16 @@
 {% block content %}
 <form action='' method='post'>
     {{ form.hidden_tag() }}
-    <p>    
+    <p>
         {{ form.header.label }}<br>
-        {{ form.header() }}<br>
+        {{ form.header(size=100) }}<br>
         {% for error in form.header.errors %}
         <span style='color: red;'>[{{ error }}]</span>
         {% endfor %}
     </p>
     <p>
         {{ form.post.label }}<br>
-        {{ form.post() }}
+        {{ form.post(id='edit_post_form', rows=20, cols=100) }}<br>
         {% for error in form.post.errors %}
         <span style='color: red;'>[{{ error }}]</span>
         {% endfor %}
@@ -20,4 +20,12 @@
         {{ form.submit() }}
     </p>
 </form>
+        {{ form.paragraph(id='paragraph_button') }}
+        {{ form.bold(id='bold_button') }}
+        {{ form.italic(id='italic_button') }}
+        {{ form.strike(id='strike_button') }}
+        {{ form.details(id='details_button') }}
+        {{ form.code(id='code_button') }}
+        {{ form.pre(id='pre_button') }}
+        <script src="{{ url_for('static', filename='script_edit_post.js') }}"></script>
 {% endblock %}
