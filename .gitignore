@@ -1,3 +1,4 @@
+logs/*
 project/text_files/*
 project/__pycache__/*
 *.pyc
