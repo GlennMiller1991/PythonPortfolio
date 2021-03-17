@@ -8,8 +8,15 @@
                 PythonPortfolio
             {% endif %}
 	</title>
-		<meta charset="UTF-8">
-                <link rel='stylesheet' href="{{ url_for('static', filename='base.css') }}"/>
+	<meta charset="UTF-8">
+        <link id='base_css_link' rel='stylesheet' href="{{ url_for('static', filename='base.css') }}"/>
+        <script>
+            let clientWidth = document.documentElement.clientWidth;
+            if (clientWidth < 1024) {
+                let elem = document.getElementById('base_css_link');
+                elem.href = "{{ url_for('static', filename='base_mobile.css') }}";
+            }
+        </script>
     </head>
     <body>
         <header>
