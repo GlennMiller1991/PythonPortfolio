@@ -15,24 +15,7 @@
 </table>
 <hr>
 {% if form %}
-    <form action="" method='post'>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.header.label }} <br>
-            {{ form.header() }} <br>
-            {% for error in form.header.errors %}
-                <span style='color: red;'>[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.post.label }} <br>
-            {{ form.post() }} <br>
-            {% for error in form.post.errors %}
-                <span style='color: red;'>[{{ error }}]</span>
-            {% endfor %}
-            {{ form.submit() }}
-        </p>
-    </form>
+    {% include '_post_form.html' %}
     <hr>
 {% endif %}
     {% for post in posts %}
