@@ -63,6 +63,15 @@
                         </ul>
                         <script src="{{ url_for('static', filename='script_base.js')}}"></script>
                     </section>
+                    <section>
+                        <table id='contacts'>
+                            <tr>
+                                <td><a href='mailto:gatesoftommorow91@mail.ru'><img src="{{ url_for('static', filename='mail.png') }}" width='40px'></a></td>
+                                <td><a href='https://t.me/alexandroBas'><img src="{{ url_for('static', filename='telegram.jpg') }}" width='40px'></a></td>
+                                <td><a href='https://github.com/GlennMiller1991'><img src="{{ url_for('static', filename='github.png') }}" width='50px'></a></td>
+                            </tr>
+                        </table>
+                    </section>
                 </aside>
                 <section id="left_center">
                     {% block content %}

@@ -36,6 +36,11 @@ section {
     padding-top:    7px;
 }
 
+#contacts {
+  width: 100%;
+  margin: 0 auto;
+}
+
 #left_center {
     width: 68%;
     float: left;
