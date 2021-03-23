@@ -7,6 +7,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user, login_required
 from jinja2 import Markup
+from sqlalchemy import desc
 
 from project.forms import LoginForm, UserFileForm, SwopForm,  RegistrationForm,\
                           EditProfileForm, PostForm
@@ -78,7 +79,6 @@ def posts(id):
     body = post.body
     body = Markup.escape(body)
     body = tag_replace(body)
-    #body = body.replace('\r\n', '<br>')
     header = post.header
     return render_template('post.html',
                            the_title='Пост',
@@ -153,9 +153,13 @@ def user(username):
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog():
-    return render_template('base.html',
+    post_list = Post.query.order_by(desc(Post.timestamp)).all()
+    for post in post_list:
+        post.body = tag_replace(Markup.escape(post.body))
+    return render_template('blog.html',
                            dictionaryOfProjects=dictionaryOfProjects,
                            the_title='Блог',
+                           post_list=post_list,
                            )
     
 @app.route('/file_proc_template', methods=['POST', 'GET'])
@@ -214,9 +218,16 @@ def file_proc():
 @app.route('/default')
 @app.route('/', methods=['POST', 'GET'])
 def main_page() -> 'html':
+    post = Post.query.get_or_404(1)
+    body = post.body
+    body = Markup.escape(body)
+    body = tag_replace(body)
+    header = post.header
     return render_template( 'main.html', 
                             the_title='PythonPortfolio', 
                             dictionaryOfProjects=dictionaryOfProjects,
+                            header=header,
+                            body=body,
                             )
 
 @app.route('/swoper', methods=['POST', 'GET'])
