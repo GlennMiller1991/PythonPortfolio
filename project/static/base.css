@@ -37,8 +37,13 @@ section {
 }
 
 #contacts {
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
+  margin-left: 7%;
+  margin-right: 5%;
+}
+
+#contacts td {
+    width: 33%;
 }
 
 #left_center {
@@ -61,4 +66,18 @@ section {
   padding-right: 5%;
   background-color: #f9fce1;
   font-family: monospace;
+}
+
+.ava {
+    border-radius: 50%;
+    border: 3px;
+    border-color: black;
+}
+
+.post_hat h2 {
+  margin-bottom: 0px;
+}
+
+.post_hat p {
+  margin-top: 0px;
 }
