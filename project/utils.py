@@ -48,66 +48,6 @@ def clear_instance_path():
                         error_file.write('ошибка удаления файла {} в {}\n'.format(f, datetime.utcnow()))
     except:
         pass
-
-def tag_replace(s):
-    # Принимает объект Markup.escape
-
-    # paragraph
-    a = Markup.escape('[p]')
-    b = Markup('<p>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/p]')
-    b = Markup('</p>')
-    s = s.replace(a, b)
-    
-    # bold 
-    a = Markup.escape('[b]')
-    b = Markup('<b>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/b]')
-    b = Markup('</b>')
-    s = s.replace(a, b)
-
-    # italic
-    a = Markup.escape('[i]')
-    b = Markup('<i>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/i]')
-    b = Markup('</i>')
-    s = s.replace(a, b)
-
-    # strike
-    a = Markup.escape('[s]')
-    b = Markup('<s>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/s]')
-    b = Markup('</s>')
-    s = s.replace(a, b)
-
-    # details
-    a = Markup.escape('[d]')
-    b = Markup('<details>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/d]')
-    b = Markup('</details>')
-    s = s.replace(a, b)
-
-    # code
-    a = Markup.escape('[c]')
-    b = Markup('<code>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/c]')
-    b = Markup('</code>')
-    s = s.replace(a, b)
-
-    # pre
-    a = Markup.escape('[pre]')
-    b = Markup('<pre>')
-    s = s.replace(a, b)
-    a = Markup.escape('[/pre]')
-    b = Markup('</pre>')
-    s = s.replace(a, b)
-    return s
     
 if __name__ == '__main__':
     text_to_swop = input('type text: ')

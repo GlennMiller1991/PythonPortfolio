@@ -3,7 +3,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[p]' + text.substring(carriageStart, carriageEnd) + '[/p]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<p>' + text.substring(carriageStart, carriageEnd) + '</p>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
     let bold_func = function() {
@@ -11,7 +11,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[b]' + text.substring(carriageStart, carriageEnd) + '[/b]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<b>' + text.substring(carriageStart, carriageEnd) + '</b>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 
@@ -20,7 +20,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[i]' + text.substring(carriageStart, carriageEnd) + '[/i]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<i>' + text.substring(carriageStart, carriageEnd) + '</i>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 
@@ -29,7 +29,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[s]' + text.substring(carriageStart, carriageEnd) + '[/s]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<s>' + text.substring(carriageStart, carriageEnd) + '</s>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 
@@ -38,7 +38,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[d]' + text.substring(carriageStart, carriageEnd) + '[/d]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<d>' + text.substring(carriageStart, carriageEnd) + '</d>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 
@@ -47,7 +47,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[c]' + text.substring(carriageStart, carriageEnd) + '[/c]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<c>' + text.substring(carriageStart, carriageEnd) + '</c>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 
@@ -56,7 +56,7 @@
         let text = post_form_edit.value;
         let carriageStart = post_form_edit.selectionStart;
         let carriageEnd = post_form_edit.selectionEnd;
-        let temp_text = text.substring(0, carriageStart) + '[pre]' + text.substring(carriageStart, carriageEnd) + '[/pre]' + text.substring(carriageEnd);
+        let temp_text = text.substring(0, carriageStart) + '<pre>' + text.substring(carriageStart, carriageEnd) + '</pre>' + text.substring(carriageEnd);
         post_form_edit.value = temp_text;
     }
 

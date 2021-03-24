@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ header }}</h2>
+<table class='post_hat'>
+    <tr>
+        <td>
+            <img class='ava' width='80px' src="{{ url_for('static', filename='admin_ava.jpg') }}">
+        </td>
+        <td>
+            <h2>
+                {{ post.header }}
+            </h2>
+            <p>
+                by <b>{{ post.author.username }}</b><br>
+                at <b>{{ post.timestamp }}
+            </p>
+        </td>
+    </tr>
+</table>
 <hr>
-{{ body }}
+{{ post.body }}
+<hr>
 {% endblock %}

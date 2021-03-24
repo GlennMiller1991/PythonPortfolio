@@ -11,12 +11,11 @@ from sqlalchemy import desc
 
 from project.forms import LoginForm, UserFileForm, SwopForm,  RegistrationForm,\
                           EditProfileForm, PostForm
-from project.utils import swoper_logic, clear_instance_path, tag_replace
+from project.utils import swoper_logic, clear_instance_path
 from project import app, os, db
 from project.models import User, IP_field, Post
 from project.file_proc import file_proc_errors, exl_file_proc, template_file_proc
 from config import localhost
-
 
 ##################################################################
 # dictionaryOfProjects
@@ -76,15 +75,11 @@ def edit_post(id):
 @app.route('/posts/<id>')
 def posts(id):
     post = Post.query.get_or_404(id)
-    body = post.body
-    body = Markup.escape(body)
-    body = tag_replace(body)
-    header = post.header
+    post.body = Markup(post.body)
     return render_template('post.html',
                            the_title='Пост',
                            dictionaryOfProjects=dictionaryOfProjects,
-                           header=header,
-                           body=body,
+                           post=post,
                            )
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -155,7 +150,7 @@ def user(username):
 def blog():
     post_list = Post.query.order_by(desc(Post.timestamp)).all()
     for post in post_list:
-        post.body = tag_replace(Markup.escape(post.body))
+        post.body = Markup(post.body)
     return render_template('blog.html',
                            dictionaryOfProjects=dictionaryOfProjects,
                            the_title='Блог',
@@ -219,15 +214,11 @@ def file_proc():
 @app.route('/', methods=['POST', 'GET'])
 def main_page() -> 'html':
     post = Post.query.get_or_404(1)
-    body = post.body
-    body = Markup.escape(body)
-    body = tag_replace(body)
-    header = post.header
+    post.body = Markup(post.body)
     return render_template( 'main.html', 
                             the_title='PythonPortfolio', 
                             dictionaryOfProjects=dictionaryOfProjects,
-                            header=header,
-                            body=body,
+                            post=post,
                             )
 
 @app.route('/swoper', methods=['POST', 'GET'])
